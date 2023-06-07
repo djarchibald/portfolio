@@ -28,7 +28,9 @@
 
         .intro-text {
             text-align: left;
-            width: 80%;
+            padding: 30px;
+            width: 85%;
+            
         }
 
         .name {
@@ -56,10 +58,11 @@
             position: fixed;
             top: 0;
             right: 0;
+            /* left: 10px; */
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
-            padding: 20px;
+            padding: 20px 20px 20px 30px;
             box-sizing: border-box;
             font-weight: 400;
             width: 100%;
@@ -74,19 +77,22 @@
 
         .social-icons {
             position: fixed;
-            left: 20px;
-            top: 50%;
+            bottom: 30px;
+            left: 0;
+            right: 0;
             transform: translateY(-50%);
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+            /* flex-direction: column; */
             align-items: center;
+            
         }
 
         .social-icons a {
             color: var(--text-color);
             text-decoration: none;
-            font-size: 1.5em;
-            margin-bottom: 20px;
+            font-size: 2.5em;
+            margin: 0 10px;
         }
 
         .hamburger-menu {
@@ -98,6 +104,12 @@
             margin-right: auto;
             cursor: pointer;
         }
+
+        .home-container {
+        display: flex;
+        align-items: center;
+        }
+
 
         @media (max-width: 768px) {
             .navbar {
@@ -133,8 +145,10 @@
 </head>
 <body>
     <nav class="navbar">
-        <i class="fas fa-lightbulb light-mode-icon"></i>
-        <a href="index.html">Home</a>
+        <div class = "home-container">
+            <i class="fas fa-lightbulb light-mode-icon"></i>
+            <a href="index.html">Home</a>
+        </div>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
         <a href="#blog">Blog</a>
@@ -160,19 +174,38 @@
             document.querySelector(".navbar").classList.toggle("active");
         });
 
-        document.querySelector(".light-mode-icon").addEventListener("click", () => {
-            const rootStyles = document.documentElement.style;
-            const lightModeBgColor = "#FFFFFF";
-            const darkModeTextColor = "#023047";
+        // document.querySelector(".light-mode-icon").addEventListener("click", () => {
+        //     const rootStyles = document.documentElement.style;
+        //     const lightModeBgColor = "#FFFFFF";
+        //     const darkModeTextColor = "#023047";
+
+        //     if (rootStyles.getPropertyValue('--bg-color') === darkModeTextColor) {
+        //         rootStyles.setProperty('--bg-color', lightModeBgColor);
+        //         rootStyles.setProperty('--text-color', darkModeTextColor);
+        //     } else {
+        //         rootStyles.setProperty('--bg-color', darkModeTextColor);
+        //         rootStyles.setProperty('--text-color', lightModeBgColor);
+        //     }
+        // });
+
+            document.querySelector(".light-mode-icon").addEventListener("click", () => {
+                const rootStyles = document.documentElement.style;
+                const lightModeBgColor = "#FFFFFF";
+                const darkModeTextColor = "#023047";
+                const lightModeTextColor = "#023047";
+                const darkModeBgColor = "#FFFFFF";
 
             if (rootStyles.getPropertyValue('--bg-color') === darkModeTextColor) {
                 rootStyles.setProperty('--bg-color', lightModeBgColor);
                 rootStyles.setProperty('--text-color', darkModeTextColor);
+                rootStyles.setProperty('--button-text-color', darkModeTextColor);
             } else {
                 rootStyles.setProperty('--bg-color', darkModeTextColor);
                 rootStyles.setProperty('--text-color', lightModeBgColor);
-            }
+                rootStyles.setProperty('--button-text-color', lightModeBgColor);
+                }
         });
+
 
         const contactButton = document.querySelector(".contact-button");
         contactButton.addEventListener("click", () => {
