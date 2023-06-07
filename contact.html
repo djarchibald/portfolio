@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"/>
+    <style>
+        :root {
+            --text-color: #FFFFFF;
+            --bg-color: #ef233c;
+            --button-text-color: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Inconsolata', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            position: relative;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+            font-weight: 400;
+            width: 100%;
+        }
+
+        .navbar a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1.2em;
+        }
+
+        .navbar .light-mode-icon {
+            color: var(--text-color);
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .social-icons {
+            position: fixed;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 35%;
+        }
+
+        .form-field {
+            font-family: 'Inconsolata', monospace;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid var(--text-color);
+            background: transparent;
+            color: var(--text-color);
+        }
+
+        .contact-button {
+            font-family: 'Inconsolata', monospace;
+            border: 1px solid var(--text-color);
+            color: var(--button-text-color);
+            background: transparent;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .hamburger-menu {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                display: none;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                background-color: var(--bg-color);
+                z-index: 1;
+            }
+
+            .navbar a, .light-mode-icon {
+                font-size: 2em;
+                margin-bottom: 20px;
+            }
+
+            .social-icons {
+                position: static;
+                transform: translateY(0);
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20px;
+            }
+
+            .hamburger-menu {
+                display: block;
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 40px;
+                height: 40px;
+            }
+
+            form {
+                width: 80%;
+                margin-top: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html"><i class="fas fa-lightbulb light-mode-icon"></i>Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#blog">Blog</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="hamburger-menu">
+        <i class="fas fa-bars"></i>
+    </div>
+    <h1>Let's build a thing</h1>
+    <form action="mailto:duncan.archibald@gmail.com" method="post" enctype="text/plain">
+        <input class="form-field" type="text" name="name" placeholder="Name" required>
+        <input class="form-field" type="email" name="email" placeholder="Email" required>
+        <textarea class="form-field" name="message" placeholder="Message" required></textarea>
+        <button class="contact-button">Contact</button>
+    </form>
+    <div class="social-icons">
+        <a href="https://www.linkedin.com/in/duncan-archibald"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/duncanarchibald"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/duncan_arch/"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/djarchibald"><i class="fab fa-github"></i></a>
+    </div>
+
+    <script>
+        // Hamburger menu toggle
+        document.querySelector(".hamburger-menu").addEventListener("click", () => {
+            document.querySelector(".navbar").classList.toggle("active");
+        });
+
+        // Light mode toggle
+        document.querySelector(".light-mode-icon").addEventListener("click", () => {
+            const rootStyles = document.documentElement.style;
+            const lightModeBgColor = "#FFFFFF";
+            const darkModeTextColor = "#ef233c";
+
+            if (rootStyles.getPropertyValue('--bg-color') === darkModeTextColor) {
+                rootStyles.setProperty('--bg-color', lightModeBgColor);
+                rootStyles.setProperty('--text-color', darkModeTextColor);
+                rootStyles.setProperty('--button-text-color', darkModeTextColor);
+            } else {
+                rootStyles.setProperty('--bg-color', darkModeTextColor);
+                rootStyles.setProperty('--text-color', lightModeBgColor);
+                rootStyles.setProperty('--button-text-color', lightModeBgColor);
+            }
+        });
+
+        // Contact button press effect
+        const contactButton = document.querySelector(".contact-button");
+        contactButton.addEventListener("mousedown", () => {
+            const rootStyles = document.documentElement.style;
+            const lightModeBgColor = "#FFFFFF";
+            const darkModeTextColor = "#ef233c";
+
+            if (rootStyles.getPropertyValue('--bg-color') === darkModeTextColor) {
+                contactButton.style.color = lightModeBgColor;
+                contactButton.style.backgroundColor = darkModeTextColor;
+            } else {
+                contactButton.style.color = darkModeTextColor;
+                contactButton.style.backgroundColor = lightModeBgColor;
+            }
+        });
+        contactButton.addEventListener("mouseup", () => {
+            contactButton.style.color = "";
+            contactButton.style.backgroundColor = "";
+        });
+    </script>
+</body>
+</html>
+
+
