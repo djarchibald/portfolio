@@ -5,9 +5,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"/>
     <style>
+        /* styles */
         :root {
             --text-color: #FFFFFF;
-            --bg-color: #023047;
+            --bg-color: #ff7b00;
             --button-bg-color: transparent;
             --button-text-color: #FFFFFF;
         }
@@ -156,38 +157,37 @@
         color: var(--bg-color);
     }
 }
-
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <!-- <div class = "home-container"> -->
-        <!-- <i class="fas fa-lightbulb light-mode-icon"></i> -->
-        <a href="index.html">Home</a>
-        <!-- </div> -->
-        <a href="about.html">About</a>
-        <a href="#projects">Projects</a>
-        <a href="blog.html">Blog</a>
-        <a href="contact.html">Contact</a>
-        <i class="fas fa-lightbulb light-mode-icon"></i>
+        <!-- same as in home and contact page -->
+        <nav class="navbar">
+            <!-- <div class = "home-container"> -->
+            <!-- <i class="fas fa-lightbulb light-mode-icon"></i> -->
+            <a href="index.html">Home</a>
+            <!-- </div> -->
+            <a href="about.html">About</a>
+            <a href="#projects">Projects</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <i class="fas fa-lightbulb light-mode-icon"></i>
     </nav>
     <div class="hamburger-menu">
         <i class="fas fa-bars"></i>
     </div>
-    <div class="intro-text">
-        <p class="description">Hello, world. My name is</p>
-        <h2 class="name">Duncan Archibald</h2>
-        <p class="description">A diplomat turned developer. Harnessing a global perspective to create elegant web solutions.</p>
-        <button class="contact-button">Get in Touch</button>
+    <div class="content">
+        <!-- Your content goes here -->
     </div>
     <div class="social-icons">
+        <!-- same as in home and contact page -->
         <a href="https://www.linkedin.com/in/duncan-archibald"><i class="fab fa-linkedin"></i></a>
         <a href="https://twitter.com/duncanarchibald"><i class="fab fa-twitter"></i></a>
         <a href="https://www.instagram.com/duncan_arch/"><i class="fab fa-instagram"></i></a>
         <a href="https://github.com/djarchibald"><i class="fab fa-github"></i></a>
     </div>
     <script>
-        document.querySelector(".hamburger-menu").addEventListener("click", () => {
+         document.querySelector(".hamburger-menu").addEventListener("click", () => {
             document.querySelector(".navbar").classList.toggle("active");
         });
 
@@ -208,8 +208,8 @@
             document.querySelector(".light-mode-icon").addEventListener("click", () => {
                 const rootStyles = document.documentElement.style;
                 const lightModeBgColor = "#FFFFFF";
-                const darkModeTextColor = "#023047";
-                const lightModeTextColor = "#023047";
+                const darkModeTextColor = "#ff7b00";
+                const lightModeTextColor = "#ff7b00";
                 const darkModeBgColor = "#FFFFFF";
 
             if (rootStyles.getPropertyValue('--bg-color') === darkModeTextColor) {
@@ -243,9 +243,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
