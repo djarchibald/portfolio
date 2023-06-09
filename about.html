@@ -30,8 +30,7 @@
         .intro-text {
             text-align: left;
             padding: 30px;
-            width: 85%;
-            
+            width: 85%;   
         }
 
         .name {
@@ -59,7 +58,6 @@
             position: fixed;
             top: 0;
             right: 0;
-            /* left: 10px; */
             display: flex;
             justify-content: flex-end;
             align-items: flex-end;
@@ -84,9 +82,7 @@
             transform: translateY(-50%);
             display: flex;
             justify-content: center;
-            /* flex-direction: column; */
             align-items: center;
-            
         }
 
         .social-icons a {
@@ -102,76 +98,71 @@
 
         .light-mode-icon {
             color: var(--text-color);
-            /* margin-right: auto; */
             margin-left: 20px;
             cursor: pointer;
         }
 
         .home-container {
-        display: flex;
-        align-items: center;
+            display: flex;
+            align-items: center;
         }
 
-
         @media (max-width: 768px) {
-            /* @media (max-width: 768px) { */
-    .navbar {
-        position: fixed;
-        top: 60px;
-        right: 20px;
-        width: auto;
-        display: none;
-        background-color: var(--text-color);
-        color: var(--bg-color);
-        border: 1px solid var(--bg-color);
-        border-radius: 0 0 0 5px;
-        text-align: left;
-        padding: 20px;
-        box-sizing: border-box;
-        flex-direction: column;
-    }
+            .navbar {
+                position: fixed;
+                top: 0;
+                right: 0;
+                min-height: 10vh;
+                width: auto;
+                /* display: none; */
+                background-color: var(--text-color);
+                color: var(--bg-color);
+                flex-direction: column;
+                border: 1px solid var(--bg-color);
+                border-radius: 0 0 0 5px;
+                text-align: left;
+                padding: 20px;
+                justify-content: start;
+                padding: 20px;
+                box-sizing: border-box;
+                overflow: auto;
+                transition: transform 0.3s ease-in-out;
+                transform: translateY(-100%);
+            }
 
-    .navbar.active {
-        display: flex;
-    }
+            .navbar.active {
+                transform: translateY(0);
+            }
 
-    .navbar a {
-        padding: 10px 0;
-        color: var(--bg-color);
-    }
+            .navbar a {
+                color: var(--bg-color);
+            }
 
-    .hamburger-menu {
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        cursor: pointer;
-        display: block;
-    }
+            .hamburger-menu {
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                display: block;
+            }
 
-    .hamburger-menu i {
-        font-size: 1.8em;
-        color: var(--text-color);
-    }
+            .hamburger-menu i {
+                color: var(--text-color);
+            }
 
-    .light-mode-icon {
-        color: var(--bg-color);
-    }
-}
+            .light-mode-icon {
+                color: var(--bg-color);
+            }
+        }
     </style>
 </head>
 <body>
     <nav class="navbar">
-        <!-- same as in home and contact page -->
-        <nav class="navbar">
-            <!-- <div class = "home-container"> -->
-            <!-- <i class="fas fa-lightbulb light-mode-icon"></i> -->
-            <a href="index.html">Home</a>
-            <!-- </div> -->
-            <a href="about.html">About</a>
-            <a href="projects.html">Projects</a>
-            <a href="blog.html">Blog</a>
-            <a href="contact.html">Contact</a>
-            <i class="fas fa-lightbulb light-mode-icon"></i>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+        <a href="blog.html">Blog</a>
+        <a href="contact.html">Contact</a>
+        <i class="fas fa-lightbulb light-mode-icon"></i>
     </nav>
     <div class="hamburger-menu">
         <i class="fas fa-bars"></i>
@@ -180,7 +171,6 @@
         <!-- Your content goes here -->
     </div>
     <div class="social-icons">
-        <!-- same as in home and contact page -->
         <a href="https://www.linkedin.com/in/duncan-archibald"><i class="fab fa-linkedin"></i></a>
         <a href="https://twitter.com/duncanarchibald"><i class="fab fa-twitter"></i></a>
         <a href="https://www.instagram.com/duncan_arch/"><i class="fab fa-instagram"></i></a>
@@ -191,26 +181,12 @@
             document.querySelector(".navbar").classList.toggle("active");
         });
 
-        // document.querySelector(".light-mode-icon").addEventListener("click", () => {
-        //     const rootStyles = document.documentElement.style;
-        //     const lightModeBgColor = "#FFFFFF";
-        //     const darkModeTextColor = "#023047";
-
-        //     if (rootStyles.getPropertyValue('--bg-color') === darkModeTextColor) {
-        //         rootStyles.setProperty('--bg-color', lightModeBgColor);
-        //         rootStyles.setProperty('--text-color', darkModeTextColor);
-        //     } else {
-        //         rootStyles.setProperty('--bg-color', darkModeTextColor);
-        //         rootStyles.setProperty('--text-color', lightModeBgColor);
-        //     }
-        // });
-
-            document.querySelector(".light-mode-icon").addEventListener("click", () => {
-                const rootStyles = document.documentElement.style;
-                const lightModeBgColor = "#FFFFFF";
-                const darkModeTextColor = "#ff7b00";
-                const lightModeTextColor = "#ff7b00";
-                const darkModeBgColor = "#FFFFFF";
+        document.querySelector(".light-mode-icon").addEventListener("click", () => {
+            const rootStyles = document.documentElement.style;
+            const lightModeBgColor = "#FFFFFF";
+            const darkModeTextColor = "#ff7b00";
+            const lightModeTextColor = "#ff7b00";
+            const darkModeBgColor = "#FFFFFF";
 
             if (rootStyles.getPropertyValue('--bg-color') === darkModeTextColor) {
                 rootStyles.setProperty('--bg-color', lightModeBgColor);
@@ -220,9 +196,8 @@
                 rootStyles.setProperty('--bg-color', darkModeTextColor);
                 rootStyles.setProperty('--text-color', lightModeBgColor);
                 rootStyles.setProperty('--button-text-color', lightModeBgColor);
-                }
+            }
         });
-
 
         const contactButton = document.querySelector(".contact-button");
         contactButton.addEventListener("click", () => {

@@ -114,7 +114,7 @@
 
         @media (max-width: 768px) {
             /* @media (max-width: 768px) { */
-    .navbar {
+    /* .navbar {
         position: fixed;
         top: 60px;
         right: 20px;
@@ -132,7 +132,32 @@
 
     .navbar.active {
         display: flex;
-    }
+    } */
+    .navbar {
+                position: fixed;
+                top: 0;
+                right: 0;
+                min-height: 10vh;
+                width: auto;
+                /* display: none; */
+                background-color: var(--text-color);
+                color: var(--bg-color);
+                flex-direction: column;
+                border: 1px solid var(--bg-color);
+                border-radius: 0 0 0 5px;
+                text-align: left;
+                padding: 20px;
+                justify-content: start;
+                padding: 20px;
+                box-sizing: border-box;
+                overflow: auto;
+                transition: transform 0.3s ease-in-out;
+                transform: translateY(-100%);
+            }
+
+            .navbar.active {
+                transform: translateY(0);
+            }
 
     .navbar a {
         padding: 10px 0;
