@@ -104,26 +104,59 @@
             font-size: 2.5em;
             margin: 0 10px;
         }
+
+        .hamburger-menu {
+            display: none; // Added this line
+        }
+
+        @media (max-width: 768px) {
+        .navbar {
+            position: fixed;
+            top: 60px;
+            right: 20px;
+            width: auto;
+            display: none;
+            background-color: var(--text-color);
+            color: var(--bg-color);
+            border: 1px solid var(--bg-color);
+            border-radius: 0 0 0 5px;
+            text-align: left;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+        }
+
+        .navbar.active {
+            display: flex;
+        }
+
+        .navbar a {
+            padding: 10px 0;
+            color: var(--bg-color);
+        }
+
+        .hamburger-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            display: block;
+        }
+
+        .hamburger-menu i {
+            font-size: 1.8em;
+            color: var(--text-color);
+        }
+        .light-mode-icon {
+            color: var(--text-color);
+        }
+
+        .navbar.active .light-mode-icon {
+            color: var(--bg-color);
+        }
+    }
     </style>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var root = document.querySelector(':root');
-            var lightModeIcon = document.querySelector('.light-mode-icon');
-            var isLightMode = false;
-
-            lightModeIcon.addEventListener('click', function() {
-                if (isLightMode) {
-                    root.style.setProperty('--text-color', '#FFFFFF');
-                    root.style.setProperty('--bg-color', '#ef233c');
-                } else {
-                    root.style.setProperty('--text-color', '#ef233c');
-                    root.style.setProperty('--bg-color', '#FFFFFF');
-                }
-
-                isLightMode = !isLightMode;
-            });
-        });
-    </script>
+    
 </head>
 <body>
     <nav class="navbar">
@@ -134,10 +167,14 @@
         <a href="contact.html">Contact</a>
         <i class="fas fa-lightbulb light-mode-icon"></i>
     </nav>
+
+    <div class="hamburger-menu">
+        <i class="fas fa-bars"></i>
+    </div>
     <div class="main-content-container">
         <div class="main-content">
             <h2>Let's build a thing</h2>
-            <p class="contact-text">Connect with me at any of my social-media pages, or hit the button below to drop me an email.</p>
+            <p class="contact-text">Connect with me through any of my social-media pages, or hit the button below to drop me an email.</p>
             <button class="email-button" onclick="location.href='mailto:Duncan.archibald@gmail.com'">Contact</button>
         </div>
     </div>
@@ -147,6 +184,49 @@
         <a href="https://www.instagram.com/duncan_arch/"><i class="fab fa-instagram"></i></a>
         <a href="https://github.com/djarchibald"><i class="fab fa-github"></i></a>
     </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+    const hamburgerMenu = document.querySelector(".hamburger-menu");
+    const navbar = document.querySelector(".navbar");
+    const lightModeIcon = document.querySelector(".light-mode-icon");
+    var isLightMode = false;
+
+    // Event listener for lightbulb click
+    lightModeIcon.addEventListener('click', function() {
+        if (isLightMode) {
+            document.documentElement.style.setProperty('--text-color', '#FFFFFF');
+            document.documentElement.style.setProperty('--bg-color', '#ef233c');
+            lightModeIcon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim();
+        } else {
+            document.documentElement.style.setProperty('--text-color', '#ef233c');
+            document.documentElement.style.setProperty('--bg-color', '#FFFFFF');
+            lightModeIcon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim();
+        }
+        isLightMode = !isLightMode;
+    });
+
+    // Event listener for hamburger menu click
+    hamburgerMenu.addEventListener("click", () => {
+        navbar.classList.toggle("active");
+
+        if (navbar.classList.contains("active")) {
+            // Menu is open
+            lightModeIcon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim();
+        } else {
+            // Menu is closed
+            if (isLightMode) {
+                // If it's light mode, set the lightbulb icon to red when menu is closed
+                lightModeIcon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim();
+            } else {
+                // If it's dark mode, set the lightbulb icon to white when menu is closed
+                lightModeIcon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
+            }
+        }
+    });
+});
+
+
+    </script>
 </body>
 </html>
 
