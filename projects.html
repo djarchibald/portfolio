@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"/>
+    <style>
+        /* styles */
+        :root {
+            --text-color: #FFFFFF;
+            --bg-color: #ef476f;
+            --button-bg-color: transparent;
+            --button-text-color: #FFFFFF;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Inconsolata', monospace;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            position: relative;
+        }
+
+        .intro-text {
+            text-align: left;
+            padding: 30px;
+            width: 85%;
+            
+        }
+
+        .name {
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+
+        .description {
+            font-size: 1.2em;
+            font-weight: 400;
+        }
+
+        .contact-button {
+            font-family: 'Inconsolata', monospace;
+            border: 1px solid var(--text-color);
+            color: var(--button-text-color);
+            background: var(--button-bg-color);
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            right: 0;
+            /* left: 10px; */
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            padding: 20px;
+            box-sizing: border-box;
+            font-weight: 400;
+            width: 100%;
+        }
+
+        .navbar a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 1.2em;
+        }
+
+        .social-icons {
+            position: fixed;
+            bottom: 30px;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: center;
+            /* flex-direction: column; */
+            align-items: center;
+            
+        }
+
+        .social-icons a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 2.5em;
+            margin: 0 10px;
+        }
+
+        .hamburger-menu {
+            display: none;
+        }
+
+        .light-mode-icon {
+            color: var(--text-color);
+            /* margin-right: auto; */
+            margin-left: 20px;
+            cursor: pointer;
+        }
+
+        .home-container {
+        display: flex;
+        align-items: center;
+        }
+
+
+        @media (max-width: 768px) {
+            /* @media (max-width: 768px) { */
+    .navbar {
+        position: fixed;
+        top: 60px;
+        right: 20px;
+        width: auto;
+        display: none;
+        background-color: var(--text-color);
+        color: var(--bg-color);
+        border: 1px solid var(--bg-color);
+        border-radius: 0 0 0 5px;
+        text-align: left;
+        padding: 20px;
+        box-sizing: border-box;
+        flex-direction: column;
+    }
+
+    .navbar.active {
+        display: flex;
+    }
+
+    .navbar a {
+        padding: 10px 0;
+        color: var(--bg-color);
+    }
+
+    .hamburger-menu {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+        display: block;
+    }
+
+    .hamburger-menu i {
+        font-size: 1.8em;
+        color: var(--text-color);
+    }
+
+    .light-mode-icon {
+        color: var(--bg-color);
+    }
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <!-- same as in home and contact page -->
+        <nav class="navbar">
+            <!-- <div class = "home-container"> -->
+            <!-- <i class="fas fa-lightbulb light-mode-icon"></i> -->
+            <a href="index.html">Home</a>
+            <!-- </div> -->
+            <a href="about.html">About</a>
+            <a href="#projects.html">Projects</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <i class="fas fa-lightbulb light-mode-icon"></i>
+    </nav>
+    <div class="hamburger-menu">
+        <i class="fas fa-bars"></i>
+    </div>
+    <div class="content">
+        <!-- Your content goes here -->
+    </div>
+    <div class="social-icons">
+        <!-- same as in home and contact page -->
+        <a href="https://www.linkedin.com/in/duncan-archibald"><i class="fab fa-linkedin"></i></a>
+        <a href="https://twitter.com/duncanarchibald"><i class="fab fa-twitter"></i></a>
+        <a href="https://www.instagram.com/duncan_arch/"><i class="fab fa-instagram"></i></a>
+        <a href="https://github.com/djarchibald"><i class="fab fa-github"></i></a>
+    </div>
+    <script>
+         document.querySelector(".hamburger-menu").addEventListener("click", () => {
+            document.querySelector(".navbar").classList.toggle("active");
+        });
+
+        // document.querySelector(".light-mode-icon").addEventListener("click", () => {
+        //     const rootStyles = document.documentElement.style;
+        //     const lightModeBgColor = "#FFFFFF";
+        //     const darkModeTextColor = "#023047";
+
+        //     if (rootStyles.getPropertyValue('--bg-color') === darkModeTextColor) {
+        //         rootStyles.setProperty('--bg-color', lightModeBgColor);
+        //         rootStyles.setProperty('--text-color', darkModeTextColor);
+        //     } else {
+        //         rootStyles.setProperty('--bg-color', darkModeTextColor);
+        //         rootStyles.setProperty('--text-color', lightModeBgColor);
+        //     }
+        // });
+
+            document.querySelector(".light-mode-icon").addEventListener("click", () => {
+                const rootStyles = document.documentElement.style;
+                const lightModeBgColor = "#FFFFFF";
+                const darkModeTextColor = "#ef476f";
+                const lightModeTextColor = "#ef476f";
+                const darkModeBgColor = "#FFFFFF";
+
+            if (rootStyles.getPropertyValue('--bg-color') === darkModeTextColor) {
+                rootStyles.setProperty('--bg-color', lightModeBgColor);
+                rootStyles.setProperty('--text-color', darkModeTextColor);
+                rootStyles.setProperty('--button-text-color', darkModeTextColor);
+            } else {
+                rootStyles.setProperty('--bg-color', darkModeTextColor);
+                rootStyles.setProperty('--text-color', lightModeBgColor);
+                rootStyles.setProperty('--button-text-color', lightModeBgColor);
+                }
+        });
+
+
+        const contactButton = document.querySelector(".contact-button");
+        contactButton.addEventListener("click", () => {
+            window.location.href = '#contact';
+        });
+
+        contactButton.addEventListener("mousedown", () => {
+            const rootStyles = document.documentElement.style;
+            rootStyles.setProperty('--button-bg-color', rootStyles.getPropertyValue('--text-color'));
+            rootStyles.setProperty('--button-text-color', rootStyles.getPropertyValue('--bg-color'));
+        });
+
+        contactButton.addEventListener("mouseup", () => {
+            const rootStyles = document.documentElement.style;
+            rootStyles.setProperty('--button-bg-color', 'transparent');
+            rootStyles.setProperty('--button-text-color', rootStyles.getPropertyValue('--text-color'));
+        });
+    </script>
+</body>
+</html>
