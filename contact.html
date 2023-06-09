@@ -240,24 +240,30 @@
         });
 
         // Contact button press effect
-        const contactButton = document.querySelector(".contact-button");
-        contactButton.addEventListener("mousedown", () => {
-            const rootStyles = document.documentElement.style;
-            const lightModeBgColor = "#FFFFFF";
-            const darkModeTextColor = "#ef233c";
 
-            if (rootStyles.getPropertyValue('--bg-color') === darkModeTextColor) {
-                contactButton.style.color = lightModeBgColor;
-                contactButton.style.backgroundColor = darkModeTextColor;
-            } else {
-                contactButton.style.color = darkModeTextColor;
-                contactButton.style.backgroundColor = lightModeBgColor;
-            }
+        const contactButton = document.querySelector(".contact-button");
+        contactButton.addEventListener("click", () => {
+            window.location.href = 'mailto:Duncan.archibald@gmail.com';
         });
-        contactButton.addEventListener("mouseup", () => {
-            contactButton.style.color = "";
-            contactButton.style.backgroundColor = "";
-        });
+
+        // const contactButton = document.querySelector(".contact-button");
+        // contactButton.addEventListener("mousedown", () => {
+        //     const rootStyles = document.documentElement.style;
+        //     const lightModeBgColor = "#FFFFFF";
+        //     const darkModeTextColor = "#ef233c";
+
+        //     if (rootStyles.getPropertyValue('--bg-color') === darkModeTextColor) {
+        //         contactButton.style.color = lightModeBgColor;
+        //         contactButton.style.backgroundColor = darkModeTextColor;
+        //     } else {
+        //         contactButton.style.color = darkModeTextColor;
+        //         contactButton.style.backgroundColor = lightModeBgColor;
+        //     }
+        // });
+        // contactButton.addEventListener("mouseup", () => {
+        //     contactButton.style.color = "";
+        //     contactButton.style.backgroundColor = "";
+        // });
     </script>
 </body>
 </html>
