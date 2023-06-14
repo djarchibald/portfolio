@@ -50,10 +50,17 @@
             cursor: pointer;
         }
 
+        .form-wrapper {
+            width: 50%;
+            display: flex-start;
+            justify-content: left;
+            align-items: center;
+        }
+
         .form-container {
             text-align: left;
-            width: 95%;
-            max-width: 90%; /* Adjust as needed */
+            width: 100%;
+            max-width: none; 
         }
 
         .contact-form {
@@ -84,7 +91,7 @@
         .contact-form input, .contact-form textarea {
             margin-bottom: 1em;
             padding: 0.5em;
-            border: none;
+            border: 1px solid;
             border-radius: 3px;
         }
 
@@ -209,12 +216,20 @@
         .navbar.active .light-mode-icon {
             color: var(--bg-color);
         }
-    }
+        
+        .form-wrapper {
+        width: 75%;
+        padding: 0 5%; /* This can be adjusted to add space at the sides */
+        }
 
-    .contact-form {
+        .form-container {
+        width: 100%;
+        }
+
+        .contact-form {
             display: flex;
             flex-direction: column;
-            width: 80%;
+            width: 100%;
             margin-top: 20px;
         }
 
@@ -269,6 +284,7 @@
             </form> -->
             <!-- <p class="contact-text">Connect with me through any of my social-media pages, or hit the button below to drop me an email.</p>
             <button class="email-button" onclick="location.href='mailto:Duncan.archibald@gmail.com'">Contact</button> -->
+        <div class="form-wrapper">
             <div class="contact-container">
                 <h2>Let's build a thing</h2>
                 <form class="contact-form" netlify>
@@ -277,6 +293,7 @@
                     <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
                     <button type="submit">Submit</button>
                 </form>
+            </div>
         </div>
         
     </div>
