@@ -311,7 +311,7 @@
     var isLightMode = false;
 
     // Event listener for lightbulb click
-    lightModeIcon.addEventListener('click', function() {
+    /* lightModeIcon.addEventListener('click', function() {
         if (isLightMode) {
             document.documentElement.style.setProperty('--text-color', '#FFFFFF');
             document.documentElement.style.setProperty('--bg-color', '#ef233c');
@@ -320,6 +320,19 @@
             document.documentElement.style.setProperty('--text-color', '#ef233c');
             document.documentElement.style.setProperty('--bg-color', '#FFFFFF');
             lightModeIcon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim();
+        }
+        isLightMode = !isLightMode;
+    }); */
+    // Event listener for lightbulb click
+        lightModeIcon.addEventListener('click', function() {
+        if (isLightMode) {
+            document.documentElement.style.setProperty('--text-color', '#FFFFFF');
+            document.documentElement.style.setProperty('--bg-color', '#ef233c');
+            lightModeIcon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
+        } else {
+        document.documentElement.style.setProperty('--text-color', '#ef233c');
+        document.documentElement.style.setProperty('--bg-color', '#FFFFFF');
+        lightModeIcon.style.color = getComputedStyle(document.documentElement).getPropertyValue('--text-color').trim();
         }
         isLightMode = !isLightMode;
     });
