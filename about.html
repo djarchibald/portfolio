@@ -20,11 +20,12 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            /* height: 100vh; */
             font-family: 'Inconsolata', monospace;
             background-color: var(--bg-color);
             color: var(--text-color);
             position: relative;
+            padding-bottom: 50px;
         }
 
         .intro-text {
@@ -75,7 +76,7 @@
         }
 
         .social-icons {
-            position: fixed;
+            position: relative;
             bottom: 30px;
             left: 0;
             right: 0;
@@ -182,12 +183,19 @@
 
             .about-me-container {
                 flex-direction: column;
+                padding-bottom: 80px;
             }
 
-            .about-me-container .about-me-text,
             .about-me-container .about-me-photo {
-                flex: 1 0 100%;
+                order: 1;
+                flex: 0 0 100%;
                 margin: 20px;
+            }
+            .about-me-container .about-me-text {
+                order: 2;
+                flex: 0 0 100%;
+                margin: 20px;
+                padding-bottom: 80px;
             }
         }
            
