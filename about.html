@@ -76,7 +76,7 @@
         }
 
         .social-icons {
-            position: relative;
+            position: fixed;
             bottom: 30px;
             left: 0;
             right: 0;
@@ -117,6 +117,7 @@
             width: 85%;
             margin: auto;
             font-size: large;
+            margin-top: 100px;
             
         }
 
@@ -181,21 +182,30 @@
                 color: var(--bg-color);
             }
 
+            .social-icons {
+                position: relative;
+            }
+
             .about-me-container {
                 flex-direction: column;
-                padding-bottom: 80px;
+                padding-bottom: 50px;
+            
             }
 
             .about-me-container .about-me-photo {
                 order: 1;
                 flex: 0 0 100%;
                 margin: 20px;
+                height: auto;
+                
+                
+                
             }
             .about-me-container .about-me-text {
                 order: 2;
                 flex: 0 0 100%;
                 margin: 20px;
-                padding-bottom: 80px;
+                padding-bottom: 50px;
             }
         }
            
