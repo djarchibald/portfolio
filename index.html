@@ -26,11 +26,41 @@
             position: relative;
         }
 
-        .intro-text {
+        /* .intro-text {
             text-align: left;
             padding: 30px;
             width: 85%;
             
+        } */
+        .intro-text {
+            display: flex;
+            /* justify-content: space-evenly; */
+            align-items: center;
+            text-align: left;
+            flex-wrap: wrap;
+            width: 75%;
+        }
+
+        .text-container .image-container {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+        }
+
+        .image-container {
+            max-width: 400px; /* or any size you prefer */
+            order: 1; /* image will come after the text */
+        }
+
+        .text-container {
+            order: 0; /* text comes first */
+            
+        }
+
+        .intro-image {
+            width: 100%; /* make the image responsive */
+            height: auto;
         }
 
         .name {
@@ -52,6 +82,7 @@
             margin-top: 20px;
             cursor: pointer;
             transition: background-color 0.2s, color 0.2s;
+            max-width: 250px;
         }
 
         .navbar {
@@ -168,7 +199,7 @@
                 position: fixed;
                 top: 20px;
                 right: 20px;
-                cursor: pointer;
+                /* cursor: pointer; */
                 display: block;
             }
 
@@ -180,7 +211,36 @@
             .light-mode-icon {
                 color: var(--bg-color);
             }
+            .social-icons {
+                position: relative;
+                padding: 20px;
+                
+            }
+            .intro-text {
+                flex-direction: column;
+                padding-top: 100px;
+                margin-top: 20px;
+                justify-content: left;
+                align-items: center;
+            }
+            .image-container {
+                order: 0; /* image will come before the text */
+                height: auto;
+                padding: 20px;
+                margin: 20px;
+                
+                }
+
+            .text-container {
+                order: 1;
+                margin-bottom: 50px;
+                padding-bottom: 50px;
+                 /* text comes after */
         }
+           
+    }
+            
+
 
     </style>
 </head>
@@ -199,12 +259,25 @@
     <div class="hamburger-menu">
         <i class="fas fa-bars"></i>
     </div>
-    <div class="intro-text">
+    <!-- <div class="intro-text">
+        <p class="description">Hello, world. My name is</p>
+        <h2 class="name">Duncan Archibald</h2>
+        <p class="description">A diplomat turned developer. Harnessing a global perspective to create elegant web solutions.</p>
+        <button class="contact-button">Get in Touch</button>
+    </div> -->
+    <!-- add your image div in intro-text -->
+<div class="intro-text">
+    <div class="image-container">
+        <img src="paper-planes.png" alt="paper planes" class="intro-image">
+    </div>
+    <div class="text-container">
         <p class="description">Hello, world. My name is</p>
         <h2 class="name">Duncan Archibald</h2>
         <p class="description">A diplomat turned developer. Harnessing a global perspective to create elegant web solutions.</p>
         <button class="contact-button">Get in Touch</button>
     </div>
+</div>
+
     <div class="social-icons">
         <a href="https://www.linkedin.com/in/duncan-archibald"><i class="fab fa-linkedin"></i></a>
         <a href="https://twitter.com/duncanarchibald"><i class="fab fa-twitter"></i></a>
